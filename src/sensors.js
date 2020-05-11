@@ -7,28 +7,33 @@ const {
   Gyroscope: GyroNative,
   Accelerometer: AccNative,
   Magnetometer: MagnNative,
-  Barometer: BarNative
+  Barometer: BarNative,
+  AbsoluteRotationVector: AbsRotVec
 } = NativeModules;
 
 const listenerKeys = new Map([
   ["accelerometer", "Accelerometer"],
   ["gyroscope", "Gyroscope"],
   ["magnetometer", "Magnetometer"],
-  ["barometer", "Barometer"]
+  ["barometer", "Barometer"][
+    ("absoluteRotationVector", "AbsoluteRotationVector")
+  ]
 ]);
 
 const nativeApis = new Map([
   ["accelerometer", AccNative],
   ["gyroscope", GyroNative],
   ["magnetometer", MagnNative],
-  ["barometer", BarNative]
+  ["barometer", BarNative],
+  ["absoluteRotationVector", AbsRotVec]
 ]);
 
 const eventEmitterSubsciption = new Map([
   ["accelerometer", null],
   ["gyroscope", null],
   ["magnetometer", null],
-  ["barometer", null]
+  ["barometer", null],
+  ["absoluteRotationVector", null]
 ]);
 
 function createSensorObservable(sensorType) {
@@ -77,10 +82,12 @@ const accelerometer = createSensorObservable("accelerometer");
 const gyroscope = createSensorObservable("gyroscope");
 const magnetometer = createSensorObservable("magnetometer");
 const barometer = createSensorObservable("barometer");
+const absoluteRotationVector = createSensorObservable("absoluteRotationVector");
 
 export default {
   gyroscope,
   accelerometer,
   magnetometer,
-  barometer
+  barometer,
+  absoluteRotationVector
 };
