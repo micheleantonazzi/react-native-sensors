@@ -6,7 +6,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.util.Log;
-import android.annotation.Nullable;
+import android.support.annotation.Nullable;
 import android.view.Surface;
 
 import com.facebook.react.bridge.Arguments;
