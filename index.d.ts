@@ -6,6 +6,7 @@ declare module "react-native-sensors" {
     gyroscope: "gyroscope";
     magnetometer: "magnetometer";
     barometer: "barometer";
+    absoluterotationvector: "absoluterotationvector";
   };
 
   export const SensorTypes: Sensors;
@@ -31,13 +32,15 @@ declare module "react-native-sensors" {
     gyroscope: Observable<SensorData>;
     magnetometer: Observable<SensorData>;
     barometer: Observable<BarometerData>;
+    absoluterotationvector: Observable<SensorData>;
   };
 
   export const {
     accelerometer,
     gyroscope,
     magnetometer,
-    barometer
+    barometer,
+    absoluterotationvector
   }: SensorsBase;
 
   const sensors: SensorsBase;
