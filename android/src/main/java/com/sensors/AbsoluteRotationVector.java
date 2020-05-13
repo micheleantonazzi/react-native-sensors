@@ -8,6 +8,8 @@ import android.hardware.SensorManager;
 import android.util.Log;
 import android.support.annotation.Nullable;
 import android.view.Surface;
+import android.view.WindowManager;
+import android.content.Context;
 
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -98,9 +100,11 @@ public class AbsoluteRotationVector extends ReactContextBaseJavaModule implement
           final int worldAxisForDeviceAxisX;
           final int worldAxisForDeviceAxisY;
 
+          int screenOrientation = ((WindowManager) reactContext.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getOrientation();
+
           // Remap the axes as if the device screen was the instrument panel,
           // and adjust the rotation matrix for the device orientation.
-          switch (1) {
+          switch (screenOrientation) {
             case Surface.ROTATION_0:
             default:
               worldAxisForDeviceAxisX = SensorManager.AXIS_X;
